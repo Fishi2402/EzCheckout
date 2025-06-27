@@ -2,20 +2,31 @@
 
 using Microsoft.EntityFrameworkCore;
 using EzCheckout.Data.Entities;
+using Microsoft.Extensions.Logging;
 
 /// <summary>
 /// Represents the database context for items in the EzCheckout application.
 /// </summary>
 public partial class EzCheckoutContext : DbContext {
+    // ---------- Private fields ----------
+
+    /// <summary>
+    /// Stores the logger for this instance.
+    /// </summary>
+    private readonly ILogger<EzCheckoutContext> _logger;
+
     // ---------- Public constructors ----------
 
     /// <summary>
     /// Initializes a new instance of the <see cref="EzCheckoutContext"/> class using the specified options.
     /// </summary>
     /// <param name="options">The options to be used by a <see cref="DbContext"/>.</param>
-    public EzCheckoutContext(DbContextOptions<EzCheckoutContext> options) 
-        : base(options)
-    {
+    /// <param name="logger">The logger to use for this context.</param>
+    public EzCheckoutContext(
+        DbContextOptions<EzCheckoutContext> options,
+        ILogger<EzCheckoutContext> logger)
+        : base(options) {
+        _logger = logger;
     }
 
 
@@ -42,6 +53,5 @@ public partial class EzCheckoutContext : DbContext {
             .HasForeignKey(oe => oe.OrderId);
 
     }
-
 }
 
