@@ -3,11 +3,13 @@
 using Microsoft.EntityFrameworkCore;
 using EzCheckout.Data.Entities;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using EzCheckout.Content.Core.Models.Identity;
 
 /// <summary>
 /// Represents the database context for items in the EzCheckout application.
 /// </summary>
-public partial class EzCheckoutContext : DbContext {
+public partial class EzCheckoutContext : IdentityDbContext<ApplicationUser> {
     // ---------- Private fields ----------
 
     /// <summary>
@@ -33,9 +35,11 @@ public partial class EzCheckoutContext : DbContext {
     // ---------- Protected methods ----------
 
     protected override void OnModelCreating(ModelBuilder modelBuilder) {
+        // Call the base implementation first - this is critical for Identity tables
+        base.OnModelCreating(modelBuilder);
+
         // Configure item-table
         _ = modelBuilder.Entity<ItemEntity>();
-
 
         // Configure OrderItemEntity composite key
         _ = modelBuilder.Entity<OrderItemEntity>()
@@ -51,7 +55,6 @@ public partial class EzCheckoutContext : DbContext {
             .HasOne(oe => oe.Order)
             .WithMany(o => o.OrderItems)
             .HasForeignKey(oe => oe.OrderId);
-
     }
 }
 

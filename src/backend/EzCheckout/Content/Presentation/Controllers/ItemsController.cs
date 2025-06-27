@@ -9,6 +9,7 @@ using EzCheckout.Content.Diagnostics;
 using EzCheckout.Core.Models;
 using EzCheckout.Data;
 
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -54,8 +55,8 @@ public partial class ItemsController : ControllerBase {
     /// Creates a new item.
     /// </summary>
     /// <param name="item"></param>
-    /// <returns></returns>
     [HttpPost]
+    [Authorize]
     public async Task<ActionResult<ItemDTO>> CreateItem(ItemDTO item) {
         using Activity? activity = Diagnostics.ActivitySource.StartActivity(
                 name: "ItemsController.CreateItem",
@@ -81,6 +82,7 @@ public partial class ItemsController : ControllerBase {
     /// <param name="id">The identifier of the item to delete.</param>
     [HttpDelete]
     [Route("{id}")]
+    [Authorize]
     public async Task<ActionResult> DeleteItem(int id) {
         using Activity? activity = Diagnostics.ActivitySource.StartActivity(
                 name: "ItemsController.DeleteItem",
@@ -107,6 +109,7 @@ public partial class ItemsController : ControllerBase {
     /// <param name="id">The identifier of the item.</param>
     [HttpGet]
     [Route("{id}")]
+    [Authorize]
     public async Task<ActionResult<ItemDTO>> GetItem(int id) {
         using Activity? activity = Diagnostics.ActivitySource.StartActivity(
                 name: "ItemsController.GetItem",
@@ -131,6 +134,7 @@ public partial class ItemsController : ControllerBase {
     /// Gets all available items.
     /// </summary>
     [HttpGet]
+    [Authorize]
     public async Task<ActionResult<ItemDTO[]>> GetItems() {
         using Activity? activity = Diagnostics.ActivitySource.StartActivity(
                 name: "ItemsController.GetItems",
@@ -154,6 +158,7 @@ public partial class ItemsController : ControllerBase {
     /// <param name="item">The updated item data.</param>
     [HttpPut]
     [Route("{id}")]
+    [Authorize]
     public async Task<ActionResult<ItemDTO>> UpdateItem(int id, ItemDTO item) {
         using Activity? activity = Diagnostics.ActivitySource.StartActivity(
                 name: "ItemsController.UpdateItem",
