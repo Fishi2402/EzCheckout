@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="backend/EzCheckout.Api/EzCheckout.Api.csproj" />
+  <Project Path="backend/EzCheckout.Api.Tests/EzCheckout.Api.Tests.csproj" />
+</Solution>
