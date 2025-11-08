@@ -1,0 +1,105 @@
+# -------------------------------------------------------------------
+# A comprehensive .gitignore for a monorepo:
+# - Frontend: React (Vite) + TypeScript
+# - Backend:  ASP.NET Core 8
+# - Infra:    AWS CDK (C#)
+# -------------------------------------------------------------------
+
+# 1. General: IDE, OS, and Secret Files
+# -------------------------------------------------------------------
+
+# OS-generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# IDE - Visual Studio Code
+.vscode/*
+*.code-workspace
+
+# IDE - Visual Studio / JetBrains Rider
+**/.vs/
+**/.idea/
+**/*.user
+**/*.suo
+
+# Local secret files
+# Use `secrets.json` (via .NET User Secrets) or `.env.local` for local development
+# NEVER commit sensitive data.
+*.local
+secrets.json
+.env.local
+.env.*.local
+.env
+
+# Log files
+*.log
+*.logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# -------------------------------------------------------------------
+# 2. Frontend: Node.js / React / Vite
+# (Matches files in `src/frontend/`)
+# -------------------------------------------------------------------
+
+# Dependencies
+**/node_modules/
+
+# Build output (Vite's default is `dist`)
+**/dist/
+
+# Test output and cache
+**/coverage/
+.nyc_output/
+.vitest-cache/
+
+# -------------------------------------------------------------------
+# 3. Backend & Infrastructure: .NET / C#
+# (Matches files in `src/backend/` and `src/infrastructure/`)
+# -------------------------------------------------------------------
+
+# Build output
+**/[Bb]in/
+**/[Oo]bj/
+
+# Publish output
+**/publish/
+
+# User-specific files
+**/*.userprefs
+**/*.resharper
+**/*.[Rr]e[Ss]harper
+
+# NuGet packages folder
+**/packages/
+*.nupkg
+
+# .NET temporary files
+*.Generated.cs
+*.cache
+
+# Entity Framework migration files
+# (It's a best practice to commit these, so they are NOT ignored)
+
+# -------------------------------------------------------------------
+# 4. AWS CDK
+# (Matches files in `src/infrastructure/`)
+# -------------------------------------------------------------------
+
+# AWS CDK synthesized artifacts (CloudFormation templates, assets)
+**/cdk.out/
+
+# AWS CDK context cache (stores VPCs, AZs, etc. from your account)
+# Ignoring this ensures a clean, non-account-specific build
+**/cdk.context.json
+
+# AWS CDK crash reports
+**/cdk-crash-report-*.json
