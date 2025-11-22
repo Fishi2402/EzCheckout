@@ -22,6 +22,10 @@
     <Compile Include="Models\DomainModels\Item.cs" />
     <Compile Include="Models\DomainModels\Order.cs" />
     <Compile Include="Models\DomainModels\OrderType.cs" />
+    <Compile Include="Models\DTO\CheckoutDTO.cs" />
+    <Compile Include="Models\DTO\ItemDTO.cs" />
+    <Compile Include="Models\DTO\OrderDTO.cs" />
+    <Compile Include="Models\DTO\OrderItemDTO.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
