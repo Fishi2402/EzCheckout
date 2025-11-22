@@ -23,6 +23,9 @@
     <Compile Include="Models\DomainModels\Order.cs" />
     <Compile Include="Models\DomainModels\OrderType.cs" />
     <Compile Include="Models\DTO\CheckoutDTO.cs" />
+    <Compile Include="Models\DTO\Extensions\CheckoutDTOExtensions.cs" />
+    <Compile Include="Models\DTO\Extensions\ItemDTOExtensions.cs" />
+    <Compile Include="Models\DTO\Extensions\OrderDTOExtensions.cs" />
     <Compile Include="Models\DTO\ItemDTO.cs" />
     <Compile Include="Models\DTO\OrderDTO.cs" />
     <Compile Include="Models\DTO\OrderItemDTO.cs" />
