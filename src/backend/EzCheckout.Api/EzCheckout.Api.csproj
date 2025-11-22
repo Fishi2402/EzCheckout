@@ -14,6 +14,7 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Auth\MockAuthHandler.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="LambdaEntryPoint.cs" />
     <Compile Include="LocalEntryPoint.cs" />
