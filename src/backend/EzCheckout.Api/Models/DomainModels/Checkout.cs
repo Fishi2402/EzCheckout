@@ -1,4 +1,4 @@
-﻿namespace EzCheckout.Api.Models;
+﻿namespace EzCheckout.Api.DomainModels;
 
 using System;
 using System.Collections.ObjectModel;

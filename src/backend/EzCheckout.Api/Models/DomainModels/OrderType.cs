@@ -1,5 +1,4 @@
-﻿namespace EzCheckout.Api.Models;
-
+﻿namespace EzCheckout.Api.DomainModels;
 /// <summary>
 /// Defines constants that represent the different types of an <see cref="Order"/>.
 /// </summary>

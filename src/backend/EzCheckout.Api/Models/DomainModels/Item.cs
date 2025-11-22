@@ -1,4 +1,4 @@
-﻿namespace EzCheckout.Api.Models;
+﻿namespace EzCheckout.Api.DomainModels;
 
 /// <summary>
 /// Represents an item that can be sold on a checkout.
